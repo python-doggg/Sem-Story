@@ -1,0 +1,6 @@
+pretrained_model_path: "/home/pengjie/StoryGen_c/stage2_log/0106_gs3_0.3/checkpoint_50000/" #"/home/pengjie/StoryGen_c/stage2_log/global_bs2560/checkpoint_10000/"  #"/home/pengjie/StoryGen_c/checkpoint_StorySalon/"
+logdir: "./test_all/"
+validation_sample_logger:
+    num_inference_steps: 40
+    guidance_scale: 7
+alpha: 0.3

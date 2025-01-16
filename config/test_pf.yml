@@ -1,0 +1,44 @@
+pretrained_model_path: /home/pengjie/StoryGen_c/stage2_pf_log/1011_0.4_xu/checkpoint_80000/ #"/home/pengjie/StoryGen_c/stage2_pf_log/p2/checkpoint_60000" #"/home/pengjie/StoryGen_c/checkpoint_StorySalon/"
+logdir: "/home/pengjie/StoryGen_c/test_all/"
+alpha: 0.4
+num_workers: 4
+dataset: pororo  # pororo flintstones vistsis vistdii
+task: continuation
+
+pororo:
+  hdf5_file: /mnt/lustre/pengjie/data/h5/pororo.h5
+  max_length: 77 # yuan 85
+  new_tokens: [ "pororo", "loopy", "eddy", "harry", "poby", "tongtong", "crong", "rody", "petty" ]
+  clip_embedding_tokens: 49416
+  blip_embedding_tokens: 30530
+
+flintstones:
+  hdf5_file: /mnt/lustre/pengjie/data/h5/flintstones.h5
+  max_length: 91
+  new_tokens: [ "fred", "barney", "wilma", "betty", "pebbles", "dino", "slate" ]
+  clip_embedding_tokens: 49412
+  blip_embedding_tokens: 30525
+
+validation_sample_logger:
+    num_inference_steps: 250 # yuan 40
+    guidance_scale: 6 # yuan 7
+gradient_accumulation_steps: 10
+train_batch_size: 12 # yuan 12
+train_steps: 60000 #50000
+validation_steps: 500 # 500
+checkpointing_steps: 10000
+mixed_precision: 'fp16'
+learning_rate: 1e-5
+val_batch_size: 1
+scale_lr: false
+lr_scheduler: constant
+lr_warmup_steps: 300 # yuan 0
+use_8bit_adam: true
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 0.01
+adam_epsilon: 1.0e-08
+max_grad_norm: 1.0
+
+seed: 0  # random seed
+batch_size: 1
